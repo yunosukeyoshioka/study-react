@@ -1,8 +1,7 @@
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
 import { Footer } from '../components/Footer';
-import { Links } from '../components/Links';
-import { HeadLine } from '../components/HeadLine';
+import { Main } from '../components/main';
 
 export default function Home() {
   return (
@@ -12,11 +11,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
-        <HeadLine title="About Page" page="page about"/>
-        <Links />
-      </main>
-
+      <Main title="About" page="page about">
+        <code>pages/about.js</code>
+      </Main>
       <Footer />
 
       <style jsx>{`

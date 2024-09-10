@@ -9,7 +9,7 @@ export function HeadLine(props) {
     </h1>
 
     <p className={styles.description}>
-      Get started by editing <code>{props.page}.js</code>
+      Get started by editing
     </p>
 
     </div>
