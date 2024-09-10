@@ -7,18 +7,19 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Index page</title>
+        <title>About page</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main>
         <h1 className={styles.title}>
-          Index Page
+          About Page
         </h1>
 
         <p className={styles.description}>
-          Get started by editing <code>pages/index.js</code>
+          Get started by editing <code>pages/about.js</code>
         </p>
+
         <Links />
       </main>
 
@@ -33,7 +34,6 @@ export default function Home() {
           justify-content: center;
           align-items: center;
         }
-        
         code {
           background: #fafafa;
           border-radius: 5px;
