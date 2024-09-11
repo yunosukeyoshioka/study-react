@@ -1,4 +1,4 @@
-import styles from '../styles/Home.module.css';
+import styles from './Headline.module.css';
 
 export function HeadLine(props) {
 
@@ -9,7 +9,7 @@ export function HeadLine(props) {
     </h1>
 
     <p className={styles.description}>
-      Get started by editing
+      Get started by editing {props.children}
     </p>
 
     </div>
