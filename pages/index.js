@@ -19,7 +19,6 @@ export default function Home() {
 
       <Footer />
 
-
       <style jsx global>{`
         html,
         body {
