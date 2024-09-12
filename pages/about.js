@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
+import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { Main } from '../components/main';
 
@@ -10,7 +11,7 @@ export default function Home() {
         <title>About page</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
+      <Header />
       <Main title="About" page="page about">
         <code>pages/about.js</code>
       </Main>
