@@ -1,7 +1,8 @@
-import styles from '../styles/Home.module.css';
-import { Links } from '../components/Links';
-import { HeadLine } from '../components/HeadLine';
+import styles from 'src/components/Main/Main.module.css';
+import { Links } from 'src/components/Links';
+import { HeadLine } from 'src/components/HeadLine';
 // import styles from './Main.module.css';
+
 export function Main(props) {
   return (
 
