@@ -3,16 +3,16 @@ import styles from '../styles/Home.module.css';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { Main } from '../components/Main';
-import { useCallback } from 'react';
+import { useCallback, useEffect } from 'react';
 
 export default function Home() {
 
-const foo = "testです"
-  const handleClick = useCallback((e) => {
-    e.preventDefault();
-    alert(foo);
-  }, []);
-  
+// const foo = "testです"
+//   const handleClick = useCallback((e) => {
+//     e.preventDefault();
+//     alert(foo);
+//   }, []);
+
   return (
     <div className={styles.container}>
       <Head>
@@ -22,7 +22,7 @@ const foo = "testです"
 
       <Header />
 
-      <a href='/about'
+      {/* <a href='/about'
         onClick={handleClick}
 
       // onClick={(e) => {
@@ -30,7 +30,7 @@ const foo = "testです"
       //   alert("ボタンが押されました");
       //   }
       // }
-      >ボタン</a>
+      >ボタン</a> */}
 
       <Main title="Index" page="page index">
 
