@@ -5,18 +5,17 @@ import { Footer } from '../components/Footer';
 import { Main } from '../components/Main';
 import { useCallback, useEffect, useState } from 'react';
 
-
 export default function Home() {
   const [count, setCount] = useState(1);
   const [text, setText] = useState("");
   const [isShow, setIsShow] = useState(false);
+  const [array, setArray] = useState([]);
 
   
 const handleChange = useCallback((e) => {
-  console.log(e);
-  if(e.target.value.length >= 5){
-    alert("5文字以内入力してください");
-  }
+  // if(e.target.value.length >= 5){
+  //   alert("5文字以内入力してください");
+  // }
     setText(e.target.value)
   }, [text])
 
@@ -24,14 +23,24 @@ const handleChange = useCallback((e) => {
 
   const handleClick = useCallback(() => {
     if(count < 10) {
-      setCount((count) => count + 1)
+      setCount((prev_count) => prev_count + 1)
     }
   }, [count]);
 
   const handleShow = useCallback(() => {
-    setIsShow((isShow) => !isShow)
+    setIsShow((prev_isShow) => !prev_isShow)
   }, [isShow])
   
+const handleAdd = useCallback(() => {
+  setArray((prev_array) => {
+    if(prev_array.some(item => item === text)){
+      alert("同じ値は追加できません");
+      return prev_array;
+    }
+    return [...prev_array, text];
+  })
+}, [text])
+
   useEffect(() => {
     document.body.style.backgroundColor = "lightblue";
     return () => {
@@ -61,6 +70,12 @@ const handleChange = useCallback((e) => {
         value={text}
         onChange={handleChange}
       />
+      <ul>
+        {array.map(item => {
+          return <li key={item}>{item}</li>;
+        })}
+      </ul>
+      <button onClick={handleAdd}>追加</button>
       <p>{text}</p>
       <Main title="Index" page="page index">
 
