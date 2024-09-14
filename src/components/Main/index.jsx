@@ -5,15 +5,6 @@ import { HeadLine } from 'src/components/HeadLine';
 import { useEffect } from 'react';
 
 export function Main(props) {
-
-  useEffect(() => {
-    console.log("マウント");
-    document.body.style.backgroundColor = "red";
-    return () => {
-      console.log("アンマウント");
-      document.body.style.backgroundColor = "";
-    }
-  }, []);
   
   return (
       <main className={styles.main}>

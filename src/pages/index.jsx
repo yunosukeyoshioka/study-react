@@ -3,15 +3,21 @@ import styles from '../styles/Home.module.css';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { Main } from '../components/Main';
-import { useCallback, useEffect } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 export default function Home() {
+  const [foo, setFoo] = useState(1)
+  
+  const handleClick =(e) => {
+    setFoo((foo) => foo + 1)
+  };
 
-// const foo = "testです"
-//   const handleClick = useCallback((e) => {
-//     e.preventDefault();
-//     alert(foo);
-//   }, []);
+  useEffect(() => {
+    document.body.style.backgroundColor = "lightblue";
+    return () => {
+      document.body.style.backgroundColor = "white";
+    }
+  }, []); 
 
   return (
     <div className={styles.container}>
@@ -21,16 +27,8 @@ export default function Home() {
       </Head>
 
       <Header />
-
-      {/* <a href='/about'
-        onClick={handleClick}
-
-      // onClick={(e) => {
-      //   e.preventDefault();
-      //   alert("ボタンが押されました");
-      //   }
-      // }
-      >ボタン</a> */}
+      <h1>{foo}</h1>
+      <button onClick={handleClick}>ボタン</button>
 
       <Main title="Index" page="page index">
 
