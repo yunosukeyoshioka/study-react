@@ -6,18 +6,22 @@ import { Main } from '../components/Main';
 import { useCallback, useEffect, useState } from 'react';
 
 export default function Home() {
-  const [foo, setFoo] = useState(1)
+  const [count, setCount] = useState(1)
   
-  const handleClick =(e) => {
-    setFoo((foo) => foo + 1)
-  };
+  const handleClick = useCallback((e) => {
+    if(count < 10) {
+    console.log("count", count)
+      setCount((count) => count + 1)
+    }
+  }, [count]);
 
   useEffect(() => {
     document.body.style.backgroundColor = "lightblue";
     return () => {
       document.body.style.backgroundColor = "white";
     }
-  }, []); 
+  //[]内の変数が実行されたときにuseEffectが実行される
+  }, [count]); 
 
   return (
     <div className={styles.container}>
@@ -27,7 +31,7 @@ export default function Home() {
       </Head>
 
       <Header />
-      <h1>{foo}</h1>
+      <h1>{count}</h1>
       <button onClick={handleClick}>ボタン</button>
 
       <Main title="Index" page="page index">
