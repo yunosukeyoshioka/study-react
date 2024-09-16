@@ -1,13 +1,21 @@
-import {useEffect} from 'react';
+import {useEffect, useMemo} from 'react';
+import { useRouter } from 'next/router';
 
-const useBgLightBlue = () => {
+export const useBgLightBlue = () => {
+  const router = useRouter(); 
+
+  const bgColor = useMemo(() => {
+    return router.pathname === "/" ? "lightblue" : "white";
+  }, [router.pathname]);
+  
+//url(bgColor)が変更されるとuseEffectが実行される
   useEffect(() => {
-    document.body.style.backgroundColor = "lightblue";
+    document.body.style.backgroundColor = bgColor;
     return () => {
       document.body.style.backgroundColor = "white";
     }
   //[]内の変数が実行されたときにuseEffectが実行される
-  }, []); 
+  }, [bgColor]); 
   return {}
 }
 

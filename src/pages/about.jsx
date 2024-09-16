@@ -5,7 +5,17 @@ import { Footer } from '../components/Footer';
 import { Main } from '../components/Main';
 import { useCallback, useEffect, useState } from 'react';
 
-export default function About(props) {
+export default function About({
+  count,
+  handleClick,
+  isShow,
+  handleShow,
+  text,
+  handleChange,
+  array,
+  handleAdd,
+  doubleCount,
+}) {
 
   return (
     <div className={styles.container}>
@@ -15,17 +25,17 @@ export default function About(props) {
       </Head>
       <Header />
 
-      {props.isShow ? <h1>{props.count}</h1> : null}
-      <button onClick={props.handleClick}>ボタン</button>
-      <button onClick={props.handleShow}>{props.isShow ? "非表示" : "表示"}</button>
-      <input type="text" value={props.text} onChange={props.handleChange}/>
-      <ul>
-        {props.array.map(item => {
+        {isShow ? <h1>{doubleCount}</h1> : null}
+      <button onClick={handleClick}>ボタン</button>
+      <button onClick={handleShow}>{isShow ? "非表示" : "表示"}</button>
+      <input type="text" value={text} onChange={handleChange}/>
+      <ul>  
+        {array.map(item => {
           return <li key={item}>{item}</li>;
         })}
       </ul>
-      <button onClick={props.handleAdd}>追加</button>
-      <p>{props.text}</p>
+      <button onClick={handleAdd}>追加</button>
+      <p>{text}</p>
 
 
 

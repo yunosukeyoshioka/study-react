@@ -8,7 +8,7 @@ import useCounter from '../hooks/useCounter';
 import useInputArray from '../hooks/useInputArray';
 import useBgLightBlue from '../hooks/useBgLightBlue';
 
-//_app.jsxからpropsを受け取ったものを使用する
+//_app.jsxkpropsを受け取ったものを使用する
 export default function Home(props) {
 
   return (
