@@ -1,17 +1,25 @@
-import "src/styles/globals.css";
+import "src/styles/global.css";
 import Head from 'next/head';
+import useCounter from '../hooks/useCounter';
+import useInputArray from '../hooks/useInputArray';
+import useBgLightBlue from '../hooks/useBgLightBlue';
 
+
+//全てのページ間で状態の受け渡しをするために使用する。propsでコンポーネントに移す
 function MyApp({ Component, pageProps }) {
+  //カウンターのロジックをuseCounterで管理する
+  const counter = useCounter();
+  const inputArray = useInputArray();
+  useBgLightBlue();
+  
   return (
-    <div className={styles.container}>
+    <>
       <Head>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.ico"/>
       </Head>
 
-      <Header />
-
-      <Component {...pageProps} />
-    </div>
+      <Component {...pageProps} {...counter} {...inputArray}/>
+    </>
   );
 }
 

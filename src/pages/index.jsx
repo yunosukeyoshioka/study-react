@@ -8,11 +8,8 @@ import useCounter from '../hooks/useCounter';
 import useInputArray from '../hooks/useInputArray';
 import useBgLightBlue from '../hooks/useBgLightBlue';
 
-export default function Home() {
-  //カウンターのロジックをuseCounterで管理する
-  const {count, isShow, handleClick, handleShow} = useCounter();
-  const {text, array, handleChange, handleAdd}  = useInputArray();
-  const {} = useBgLightBlue();
+//_app.jsxからpropsを受け取ったものを使用する
+export default function Home(props) {
 
   return (
     <div className={styles.container}>
@@ -22,17 +19,17 @@ export default function Home() {
       </Head>
       <Header />
 
-      {isShow ? <h1>{count}</h1> : null}
-      <button onClick={handleClick}>ボタン</button>
-      <button onClick={handleShow}>{isShow ? "非表示" : "表示"}</button>
-      <input type="text" value={text} onChange={handleChange}/>
+      {props.isShow ? <h1>{props.count}</h1> : null}
+      <button onClick={props.handleClick}>ボタン</button>
+      <button onClick={props.handleShow}>{props.isShow ? "非表示" : "表示"}</button>
+      <input type="text" value={props.text} onChange={props.handleChange}/>
       <ul>
-        {array.map(item => {
+        {props.array.map(item => {
           return <li key={item}>{item}</li>;
         })}
       </ul>
-      <button onClick={handleAdd}>追加</button>
-      <p>{text}</p>
+      <button onClick={props.handleAdd}>追加</button>
+      <p>{props.text}</p>
 
 
       <Main title="Index" page="page index">
